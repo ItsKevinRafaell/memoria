@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:memoria/core/models/game_config.dart';
 
 class GameDetailScreen extends StatelessWidget {
-  const GameDetailScreen({super.key});
+  final GameConfig game;
+  const GameDetailScreen({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +55,8 @@ class GameDetailScreen extends StatelessWidget {
             const SizedBox(height: 24),
 
             // Title & Description
-            const Text(
-              'Shape Recall',
+            Text(
+              game.title,
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w800,
@@ -63,8 +65,8 @@ class GameDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Test your working memory and visual recognition.',
+            Text(
+              game.description,
               style: TextStyle(
                 fontSize: 16,
                 color: Color(0xFF475569),
@@ -157,7 +159,14 @@ class GameDetailScreen extends StatelessWidget {
             width: double.infinity,
             height: 56,
             child: ElevatedButton(
-              onPressed: () {}, // Trigger actual game engine here
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => game.builder(context),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryBlue,
                 foregroundColor: Colors.white,
