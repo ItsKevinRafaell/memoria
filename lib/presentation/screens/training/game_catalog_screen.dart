@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:memoria/presentation/screens/training/game_detail_screen.dart';
+import 'package:memoria/features/memory_game/screens/game_screen.dart';
+import 'package:memoria/features/speed_match/screens/game_screen.dart';
+import 'package:memoria/core/models/game_config.dart';
+import 'package:memoria/core/data/game_list.dart';
 
 class GameCatalogScreen extends StatefulWidget {
   final int currentNavIndex;
@@ -125,56 +129,28 @@ class _GameCatalogScreenState extends State<GameCatalogScreen> {
             ),
             const SizedBox(height: 32),
 
-            // Game Cards List
-            // In a real app, you would filter a list of game models here based on _selectedCategory
-            _GameCard(
-              title: 'Shape Recall',
-              subtitle: 'Trains: Working Memory',
-              icon: Icons.category_rounded,
-              bgColor: const Color(0xFFFFF0E0), // Peach
-              iconColor: primaryBlue,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const GameDetailScreen(),
+            Column(
+              children: games.map((game) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: _GameCard(
+                    title: game.title,
+                    subtitle: game.description,
+                    icon: Icons.psychology,
+                    bgColor: const Color(0xFFFFF0E0),
+                    iconColor: primaryBlue,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => GameDetailScreen(game: game),
+                        ),
+                      );
+                    },
                   ),
                 );
-              },
-            ),
-            const SizedBox(height: 16),
-            _GameCard(
-              title: 'Focus Flow',
-              subtitle: 'Trains: Attention',
-              icon: Icons.psychology_rounded,
-              bgColor: const Color(0xFFD1FAE5), // Mint
-              iconColor: primaryBlue,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const GameDetailScreen(),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 16),
-            _GameCard(
-              title: 'Logic Link',
-              subtitle: 'Trains: Problem Solving',
-              icon: Icons.extension_rounded,
-              bgColor: const Color(0xFFF3E8FF), // Light Purple
-              iconColor: primaryBlue,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const GameDetailScreen(),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 32),
+              }).toList(),
+            )
           ],
         ),
       ),
