@@ -38,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
               backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=47'),
             ),
             const Text(
-              'Memoria',
+              'NeuroBob',
               style: TextStyle(
                 color: primaryBlue,
                 fontWeight: FontWeight.bold,
@@ -47,7 +47,11 @@ class ProfileScreen extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(Icons.settings_outlined, color: darkText),
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Settings coming soon')),
+                );
+              },
             ),
           ],
         ),
@@ -117,7 +121,11 @@ class ProfileScreen extends StatelessWidget {
               iconColor: primaryBlue,
               title: 'Account Details',
               subtitle: 'Email, Password, Security',
-              onTap: () {},
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Account Details coming soon')),
+                );
+              },
             ),
             const SizedBox(height: 16),
             _MenuTile(
@@ -126,7 +134,11 @@ class ProfileScreen extends StatelessWidget {
               iconColor: primaryBlue,
               title: 'Notifications & Reminders',
               subtitle: 'Push, Email, Daily goals',
-              onTap: () {},
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Notifications coming soon')),
+                );
+              },
             ),
             const SizedBox(height: 16),
             _MenuTile(
@@ -135,7 +147,11 @@ class ProfileScreen extends StatelessWidget {
               iconColor: const Color(0xFFD97706), // Orange
               title: 'Help & Support',
               subtitle: 'FAQ, Contact us, Guides',
-              onTap: () {},
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Help & Support coming soon')),
+                );
+              },
             ),
             const SizedBox(height: 32),
 
@@ -180,7 +196,7 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       // --- Bottom Nav Bar ---
-      bottomNavigationBar: _MemoriaBottomNav(
+      bottomNavigationBar: _NeuroBobBottomNav(
         currentIndex: currentNavIndex,
         onTap: onNavTap ?? (index) {},
       ),
@@ -349,7 +365,11 @@ class _UpgradeCard extends StatelessWidget {
             width: double.infinity,
             height: 52,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Upgrade flow coming soon')),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryBlue,
                 foregroundColor: Colors.white,
@@ -392,11 +412,11 @@ class _UpgradeCard extends StatelessWidget {
 }
 
 // Reused Bottom Navigation Bar
-class _MemoriaBottomNav extends StatelessWidget {
+class _NeuroBobBottomNav extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  const _MemoriaBottomNav({required this.currentIndex, required this.onTap});
+  const _NeuroBobBottomNav({required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 // lib/presentation/widgets/buttons/app_button.dart
 import 'package:flutter/material.dart';
-import 'package:memoria/core/theme/app_theme.dart';
+import 'package:NeuroBob/core/theme/app_theme.dart';
 
 /// Button visual variants — exactly 3 from design:
 ///  - primaryWithArrow → solid Blue, white text, trailing arrow icon

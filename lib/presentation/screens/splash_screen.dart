@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
 
-              Text('Memoria', style: AppTextStyles.h1),
+              Text('NeuroBob', style: AppTextStyles.h1),
               const SizedBox(height: 12),
 
               Text(

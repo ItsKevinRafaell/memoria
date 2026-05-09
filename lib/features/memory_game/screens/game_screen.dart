@@ -87,6 +87,24 @@ class _MemoryGameScreenState extends State<MemoryGameScreen> {
                 _ActionRow()
                     .animate()
                     .fadeIn(delay: 250.ms, duration: 400.ms),
+
+                const SizedBox(height: 16),
+
+                // ── Quit button ──────────────────────────────
+                TextButton(
+                  onPressed: () {
+                    context.read<MemoryGameProvider>().startNewGame();
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  },
+                  child: Text(
+                    'QUIT GAME',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.25),
+                      fontSize: 11,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

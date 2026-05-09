@@ -57,7 +57,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
             ),
             const SizedBox(width: 12),
             const Text(
-              'Memoria',
+              'NeuroBob',
               style: TextStyle(
                 color: primaryBlue,
                 fontWeight: FontWeight.bold,
@@ -69,7 +69,11 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications_none_rounded, color: darkText),
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('No new notifications')),
+              );
+            },
           ),
           const SizedBox(width: 8),
         ],
@@ -221,7 +225,9 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    widget.onNavTap(2);
+                  },
                   child: const Text(
                     'View All',
                     style: TextStyle(
@@ -272,7 +278,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
         ),
       ),
       // --- Added the Bottom Navigation Bar here ---
-      bottomNavigationBar: _MemoriaBottomNav(
+      bottomNavigationBar: _NeuroBobBottomNav(
         currentIndex: widget.currentNavIndex,
         onTap: widget.onNavTap,
       ),
@@ -469,11 +475,11 @@ class _FocusCard extends StatelessWidget {
 }
 
 // Ensure bottom navigation is available here
-class _MemoriaBottomNav extends StatelessWidget {
+class _NeuroBobBottomNav extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  const _MemoriaBottomNav({required this.currentIndex, required this.onTap});
+  const _NeuroBobBottomNav({required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

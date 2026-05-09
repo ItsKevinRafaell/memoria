@@ -35,7 +35,7 @@ class _StatsScreenState extends State<StatsScreen> {
               backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=47'),
             ),
             const Text(
-              'Memoria',
+              'NeuroBob',
               style: TextStyle(
                 color: primaryBlue,
                 fontWeight: FontWeight.bold,
@@ -44,7 +44,9 @@ class _StatsScreenState extends State<StatsScreen> {
             ),
             IconButton(
               icon: const Icon(Icons.settings_outlined, color: darkText),
-              onPressed: () {},
+              onPressed: () {
+                if (widget.onNavTap != null) widget.onNavTap!(3);
+              },
             ),
           ],
         ),
@@ -77,7 +79,7 @@ class _StatsScreenState extends State<StatsScreen> {
         ),
       ),
       // --- ADDED BOTTOM NAV BAR HERE ---
-      bottomNavigationBar: _MemoriaBottomNav(
+      bottomNavigationBar: _NeuroBobBottomNav(
         currentIndex: widget.currentNavIndex,
         onTap: widget.onNavTap ?? (index) {},
       ),
@@ -445,7 +447,11 @@ class _AIInsightsCard extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Plan feature coming soon')),
+              );
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: const Color(0xFF4F46E5),
@@ -474,11 +480,11 @@ class _AIInsightsCard extends StatelessWidget {
 }
 
 // Ensure bottom navigation is available here
-class _MemoriaBottomNav extends StatelessWidget {
+class _NeuroBobBottomNav extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  const _MemoriaBottomNav({required this.currentIndex, required this.onTap});
+  const _NeuroBobBottomNav({required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

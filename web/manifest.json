@@ -1,6 +1,6 @@
 {
-    "name": "memoria",
-    "short_name": "memoria",
+    "name": "NeuroBob",
+    "short_name": "NeuroBob",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

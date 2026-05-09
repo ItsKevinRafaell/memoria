@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:memoria/core/models/onboarding_model.dart';
-import 'package:memoria/presentation/screens/profile/profile_screen.dart';
-import 'package:memoria/presentation/screens/profile/subscription_dialog.dart';
-import 'package:memoria/presentation/screens/splash_screen.dart';
-import 'package:memoria/presentation/screens/onboarding/onboarding_name_screen.dart';
-import 'package:memoria/presentation/screens/onboarding/onboarding_age_screen.dart';
-import 'package:memoria/presentation/screens/onboarding/onboarding_memory_screen.dart';
-import 'package:memoria/presentation/screens/onboarding/onboarding_exercise_screen.dart';
-import 'package:memoria/presentation/screens/home/home_dashboard_screen.dart';
-import 'package:memoria/presentation/screens/stats/stats_screen.dart';
-import 'package:memoria/presentation/screens/training/game_catalog_screen.dart';
+import 'package:NeuroBob/core/models/onboarding_model.dart';
+import 'package:NeuroBob/presentation/screens/profile/profile_screen.dart';
+import 'package:NeuroBob/presentation/screens/profile/subscription_dialog.dart';
+import 'package:NeuroBob/presentation/screens/splash_screen.dart';
+import 'package:NeuroBob/presentation/screens/onboarding/onboarding_name_screen.dart';
+import 'package:NeuroBob/presentation/screens/onboarding/onboarding_age_screen.dart';
+import 'package:NeuroBob/presentation/screens/onboarding/onboarding_memory_screen.dart';
+import 'package:NeuroBob/presentation/screens/onboarding/onboarding_exercise_screen.dart';
+import 'package:NeuroBob/presentation/screens/home/home_dashboard_screen.dart';
+import 'package:NeuroBob/presentation/screens/stats/stats_screen.dart';
+import 'package:NeuroBob/presentation/screens/training/game_catalog_screen.dart';
 import 'core/theme/app_theme.dart';
-import 'package:memoria/presentation/screens/checkin/daily_checkin_sheet.dart';
+import 'package:NeuroBob/presentation/screens/checkin/daily_checkin_sheet.dart';
 
 void main() {
-  runApp(const MemoriaApp());
+  runApp(const NeuroBobApp());
 }
 
-class MemoriaApp extends StatelessWidget {
-  const MemoriaApp({super.key});
+class NeuroBobApp extends StatelessWidget {
+  const NeuroBobApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Memoria',
+      title: 'NeuroBob',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Poppins',

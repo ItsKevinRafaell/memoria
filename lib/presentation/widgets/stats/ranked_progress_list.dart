@@ -1,6 +1,6 @@
 // lib/presentation/widgets/stats/ranked_progress_list.dart
 import 'package:flutter/material.dart';
-import 'package:memoria/core/theme/app_theme.dart';
+import 'package:NeuroBob/core/theme/app_theme.dart';
 
 /// Data model for a single ranked progress item
 class RankedProgressItem {

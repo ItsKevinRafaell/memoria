@@ -1,6 +1,6 @@
 // lib/presentation/widgets/progress/progress_bar_top.dart
 import 'package:flutter/material.dart';
-import 'package:memoria/core/theme/app_theme.dart';
+import 'package:NeuroBob/core/theme/app_theme.dart';
 
 /// ─────────────────────────────────────────
 ///  ProgressBarTop

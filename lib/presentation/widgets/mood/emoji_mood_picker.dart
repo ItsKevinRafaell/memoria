@@ -1,6 +1,6 @@
 // lib/presentation/widgets/mood/emoji_mood_picker.dart
 import 'package:flutter/material.dart';
-import 'package:memoria/core/theme/app_theme.dart';
+import 'package:NeuroBob/core/theme/app_theme.dart';
 
 /// 5 mood levels matching the emoji grid design
 enum MoodLevel {

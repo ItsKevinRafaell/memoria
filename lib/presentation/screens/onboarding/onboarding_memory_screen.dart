@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memoria/core/models/onboarding_model.dart';
+import 'package:NeuroBob/core/models/onboarding_model.dart';
 import '../../../core/theme/app_theme.dart';
 
 class OnboardingMemoryScreen extends StatefulWidget {

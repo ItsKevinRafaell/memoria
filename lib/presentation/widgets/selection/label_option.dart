@@ -1,6 +1,6 @@
 // lib/presentation/widgets/selection/label_option.dart
 import 'package:flutter/material.dart';
-import 'package:memoria/core/theme/app_theme.dart';
+import 'package:NeuroBob/core/theme/app_theme.dart';
 
 /// ─────────────────────────────────────────
 ///  LabelOption  (Container_3 + Label Option)

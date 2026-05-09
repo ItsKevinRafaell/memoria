@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:memoria/presentation/screens/training/game_detail_screen.dart';
-import 'package:memoria/features/memory_game/screens/game_screen.dart';
-import 'package:memoria/features/speed_match/screens/game_screen.dart';
-import 'package:memoria/core/models/game_config.dart';
-import 'package:memoria/core/data/game_list.dart';
+import 'package:NeuroBob/presentation/screens/training/game_detail_screen.dart';
+import 'package:NeuroBob/features/memory_game/screens/game_screen.dart';
+import 'package:NeuroBob/features/speed_match/screens/game_screen.dart';
+import 'package:NeuroBob/core/models/game_config.dart';
+import 'package:NeuroBob/core/data/game_list.dart';
 
 class GameCatalogScreen extends StatefulWidget {
   final int currentNavIndex;
@@ -45,7 +45,7 @@ class _GameCatalogScreenState extends State<GameCatalogScreen> {
               backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=47'),
             ),
             const Text(
-              'Memoria',
+              'NeuroBob',
               style: TextStyle(
                 color: primaryBlue,
                 fontWeight: FontWeight.bold,
@@ -54,7 +54,9 @@ class _GameCatalogScreenState extends State<GameCatalogScreen> {
             ),
             IconButton(
               icon: const Icon(Icons.settings_outlined, color: darkText),
-              onPressed: () {},
+              onPressed: () {
+                if (widget.onNavTap != null) widget.onNavTap!(3);
+              },
             ),
           ],
         ),
@@ -155,7 +157,7 @@ class _GameCatalogScreenState extends State<GameCatalogScreen> {
         ),
       ),
       // Bottom Navigation Bar built exactly as shown in the design
-      bottomNavigationBar: _MemoriaBottomNav(
+      bottomNavigationBar: _NeuroBobBottomNav(
         currentIndex: widget.currentNavIndex,
         onTap: widget.onNavTap ?? (index) {},
       ),
@@ -267,11 +269,11 @@ class _GameCard extends StatelessWidget {
   }
 }
 
-class _MemoriaBottomNav extends StatelessWidget {
+class _NeuroBobBottomNav extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  const _MemoriaBottomNav({required this.currentIndex, required this.onTap});
+  const _NeuroBobBottomNav({required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

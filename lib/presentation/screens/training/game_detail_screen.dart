@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memoria/core/models/game_config.dart';
+import 'package:NeuroBob/core/models/game_config.dart';
 
 class GameDetailScreen extends StatelessWidget {
   final GameConfig game;
@@ -22,7 +22,7 @@ class GameDetailScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context), // Goes back to catalog
         ),
         title: const Text(
-          'Memoria',
+          'NeuroBob',
           style: TextStyle(
             color: darkText,
             fontWeight: FontWeight.bold,

@@ -113,7 +113,7 @@ class _OnboardingNameScreenState extends State<OnboardingNameScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
-                  'We\'d love to know your name so we can personalize your Memoria experience.',
+                  'We\'d love to know your name so we can personalize your NeuroBob experience.',
                   textAlign: TextAlign.center,
                   style: AppTextStyles.bodyLarge.copyWith(
                     color: AppColors.textPrimary.withOpacity(0.7),

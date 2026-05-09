@@ -1,6 +1,6 @@
 // lib/presentation/widgets/bottom_nav_bar/bottom_nav_bar.dart
 import 'package:flutter/material.dart';
-import 'package:memoria/core/theme/app_theme.dart';
+import 'package:NeuroBob/core/theme/app_theme.dart';
 
 /// Navigation item model
 class NavItem {
