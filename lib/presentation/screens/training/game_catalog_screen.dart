@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:NeuroBob/presentation/screens/training/game_detail_screen.dart';
-import 'package:NeuroBob/features/memory_game/screens/game_screen.dart';
-import 'package:NeuroBob/features/speed_match/screens/game_screen.dart';
-import 'package:NeuroBob/core/models/game_config.dart';
 import 'package:NeuroBob/core/data/game_list.dart';
 
 class GameCatalogScreen extends StatefulWidget {

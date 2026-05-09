@@ -2,8 +2,9 @@
 // Landing screen shown before game starts.
 
 import 'package:flutter/material.dart';
-import '../providers/speed_match_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../providers/speed_match_provider.dart';
 //import '../providers/game_provider.dart';
 import 'game_screen.dart';
 
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen>
   void _startGame(BuildContext context) async {
     final provider = context.read<SpeedMatchProvider>();
     await provider.startGame();
-    if (!mounted) return;
+    if (!context.mounted) return;
     Navigator.of(context).push(
       PageRouteBuilder(
         pageBuilder: (_, __, ___) => const SpeedMatchGameScreen(),
@@ -95,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen>
                 Text(
                   'Cognitive Speed Training',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.4),
+                    color: Colors.white.withAlpha((0.4 * 255).toInt()),
                     fontSize: 13,
                     letterSpacing: 2,
                   ),
@@ -112,9 +113,9 @@ class _HomeScreenState extends State<HomeScreen>
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: const Color(0xFFFFD700).withOpacity(0.4),
+                        color: const Color(0xFFFFD700).withAlpha((0.4 * 255).toInt()),
                       ),
-                      color: const Color(0xFFFFD700).withOpacity(0.06),
+                      color: const Color(0xFFFFD700).withAlpha((0.15 * 255).toInt()),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -127,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen>
                               'BEST SCORE',
                               style: TextStyle(
                                 color:
-                                    const Color(0xFFFFD700).withOpacity(0.6),
+                                    const Color(0xFFFFD700).withAlpha((0.6 * 255).toInt()),
                                 fontSize: 9,
                                 letterSpacing: 1.5,
                               ),
@@ -173,9 +174,9 @@ class _HowToPlayCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Colors.white.withOpacity(0.08),
+          color: Colors.white.withAlpha((0.8 * 255).toInt()),
         ),
-        color: Colors.white.withOpacity(0.03),
+        color: Colors.white.withAlpha((0.3 * 255).toInt()),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,7 +184,7 @@ class _HowToPlayCard extends StatelessWidget {
           Text(
             'HOW TO PLAY',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withAlpha((0.5 * 255).toInt()),
               fontSize: 10,
               fontWeight: FontWeight.w700,
               letterSpacing: 2,
@@ -231,7 +232,7 @@ class _Instruction extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withAlpha((0.2 * 255).toInt()),
               fontSize: 14,
             ),
           ),
@@ -339,7 +340,7 @@ class _GlowText extends StatelessWidget {
         letterSpacing: letterSpacing,
         shadows: [
           Shadow(
-            color: color.withOpacity(0.5),
+            color: color.withAlpha((0.5 * 255).toInt()),
             blurRadius: 20,
           ),
         ],

@@ -20,7 +20,6 @@ import 'package:flutter/material.dart';
 import '../models/card_model.dart';
 import '../models/high_score_model.dart';
 import '../utils/high_score_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MemoryGameProvider extends ChangeNotifier {
   // ──────────────────────────────────────────────
@@ -65,7 +64,7 @@ class MemoryGameProvider extends ChangeNotifier {
   // Initialisation
   // ──────────────────────────────────────────────
 
-  GameProvider() {
+  MemoryGameProvider() {
     startNewGame();
   }
 

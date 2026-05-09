@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import '../providers/speed_match_provider.dart';
 import '../models/game_state.dart';
 //import '../providers/game_provider.dart';
-import 'game_screen.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({super.key});
@@ -343,14 +342,6 @@ class _ActionButtons extends StatelessWidget {
           onTap: () async {
             final provider = context.read<SpeedMatchProvider>();
             await provider.startGame();
-            if (!context.mounted) return;
-            Navigator.of(context).pushReplacement(
-              PageRouteBuilder(
-                pageBuilder: (_, __, ___) => const SpeedMatchGameScreen(),
-                transitionsBuilder: (_, anim, __, child) =>
-                    FadeTransition(opacity: anim, child: child),
-              ),
-            );
           },
           child: Container(
             width: double.infinity,

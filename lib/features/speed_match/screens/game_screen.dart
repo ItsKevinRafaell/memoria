@@ -15,7 +15,6 @@ class SpeedMatchGameScreen extends StatefulWidget {
 }
 
 class _SpeedMatchGameScreenState extends State<SpeedMatchGameScreen> {
-  bool _navigatedToResult = false;
 
   @override
   void initState() {
@@ -33,22 +32,8 @@ class _SpeedMatchGameScreenState extends State<SpeedMatchGameScreen> {
       builder: (context, provider, _) {
         final state = provider.state;
 
-        // ✅ Prevent multiple navigation triggers
-        if (state.phase == GamePhase.finished && !_navigatedToResult) {
-          _navigatedToResult = true;
-
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            Navigator.of(context).pushReplacement(
-              PageRouteBuilder(
-                pageBuilder: (_, __, ___) => const ResultScreen(),
-                transitionsBuilder: (_, anim, __, child) => FadeTransition(
-                  opacity: anim,
-                  child: child,
-                ),
-                transitionDuration: const Duration(milliseconds: 400),
-              ),
-            );
-          });
+        if (state.phase == GamePhase.finished) {
+          return const ResultScreen();
         }
 
         final bool inputEnabled =

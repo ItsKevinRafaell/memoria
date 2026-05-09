@@ -52,9 +52,6 @@ class _AppNavigatorState extends State<AppNavigator> {
   _AppScreen _screen = _AppScreen.splash;
 
   String _userName = '';
-  AgeRange? _age;
-  MemoryBaseline? _memory;
-  ExerciseFrequency? _exercise;
   int _onboardingStep = 1;
   int _navIndex = 0;
 
@@ -66,7 +63,7 @@ class _AppNavigatorState extends State<AppNavigator> {
     _onboardingStep = 1;
   });
 
-  void _goToMain() => setState(() => _screen = _AppScreen.main);
+
 
   // ── Onboarding step callbacks ──
   void _onNameContinue(String name) => setState(() {
@@ -75,18 +72,15 @@ class _AppNavigatorState extends State<AppNavigator> {
   });
 
   void _onAgeContinue(AgeRange age) => setState(() {
-    _age = age;
     _onboardingStep = 3;
   });
 
   void _onMemoryContinue(MemoryBaseline memory) => setState(() {
-    _memory = memory;
     _onboardingStep = 4;
   });
 
   void _onExerciseFinish(ExerciseFrequency exercise) {
     setState(() {
-      _exercise = exercise;
       _pendingInitialCheckIn =
           true; // Set flag to true right before going to Main!
       _screen = _AppScreen.main;
@@ -149,12 +143,11 @@ class _AppNavigatorState extends State<AppNavigator> {
                 // The dialog handles popping itself.
                 // We wait 300ms for the animation to clear, then show the Subs Modal!
                 Future.delayed(const Duration(milliseconds: 300), () {
-                  if (context.mounted) {
-                    showDialog(
-                      context: context,
-                      builder: (_) => const SubscriptionDialog(),
-                    );
-                  }
+                  if (!context.mounted) return;
+                  showDialog(
+                    context: context,
+                    builder: (_) => const SubscriptionDialog(),
+                  );
                 });
               },
             ),
