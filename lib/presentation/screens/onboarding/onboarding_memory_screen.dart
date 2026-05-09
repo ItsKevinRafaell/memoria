@@ -218,7 +218,6 @@ class _OnboardingMemoryScreenState extends State<OnboardingMemoryScreen> {
   _MemoryVisualConfig _getVisualConfig(MemoryBaseline m) {
     switch (m) {
       case MemoryBaseline.excellent:
-      case MemoryBaseline.good:
         return _MemoryVisualConfig(
           label: 'Sharp as ever',
           icon: Icons.psychology_outlined,
@@ -232,7 +231,6 @@ class _OnboardingMemoryScreenState extends State<OnboardingMemoryScreen> {
           bgColor: const Color(0xFFFEF3C7), // Soft Orange/Yellow
           iconColor: const Color(0xFFD97706), // Amber
         );
-      case MemoryBaseline.belowAverage:
       case MemoryBaseline.poor:
         return _MemoryVisualConfig(
           label: 'Often misplace things',

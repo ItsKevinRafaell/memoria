@@ -4,8 +4,9 @@ import '../widgets/buttons/app_button.dart';
 
 class SplashScreen extends StatelessWidget {
   final VoidCallback onStartJourney;
+  final VoidCallback onLogin;
 
-  const SplashScreen({super.key, required this.onStartJourney});
+  const SplashScreen({super.key, required this.onStartJourney, required this.onLogin});
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +58,8 @@ class SplashScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               AppButton.secondary(
-                label: 'Start My Journey',
-                onPressed: onStartJourney,
+                label: 'Login',
+                onPressed: onLogin,
               ),
 
               const Spacer(),

@@ -10,6 +10,7 @@ import 'package:NeuroBob/presentation/screens/onboarding/onboarding_exercise_scr
 import 'package:NeuroBob/presentation/screens/home/home_dashboard_screen.dart';
 import 'package:NeuroBob/presentation/screens/stats/stats_screen.dart';
 import 'package:NeuroBob/presentation/screens/training/game_catalog_screen.dart';
+import 'package:NeuroBob/presentation/screens/login/login_screen.dart';
 import 'core/theme/app_theme.dart';
 import 'package:NeuroBob/presentation/screens/checkin/daily_checkin_sheet.dart';
 
@@ -39,7 +40,7 @@ class NeuroBobApp extends StatelessWidget {
 // ─────────────────────────────────────────────
 // Root Navigator — manages app flow state
 // ─────────────────────────────────────────────
-enum _AppScreen { splash, onboarding, main }
+enum _AppScreen { splash, login, onboarding, main }
 
 class AppNavigator extends StatefulWidget {
   const AppNavigator({super.key});
@@ -61,6 +62,20 @@ class _AppNavigatorState extends State<AppNavigator> {
   void _goToOnboarding() => setState(() {
     _screen = _AppScreen.onboarding;
     _onboardingStep = 1;
+  });
+
+  void _goToLogin() => setState(() {
+    _screen = _AppScreen.login;
+  });
+
+  void _goToSplash() => setState(() {
+    _screen = _AppScreen.splash;
+    _onboardingStep = 1;
+    _navIndex = 0;
+  });
+
+  void _goToMain() => setState(() {
+    _screen = _AppScreen.main;
   });
 
 
@@ -94,7 +109,8 @@ class _AppNavigatorState extends State<AppNavigator> {
   @override
   Widget build(BuildContext context) {
     return switch (_screen) {
-      _AppScreen.splash => SplashScreen(onStartJourney: _goToOnboarding),
+      _AppScreen.splash => SplashScreen(onStartJourney: _goToOnboarding, onLogin: _goToLogin),
+      _AppScreen.login => LoginScreen(onLoginSuccess: _goToMain, onBack: _goToSplash),
       _AppScreen.onboarding => _buildOnboardingStep(),
       _AppScreen.main => _buildMainShell(),
     };
@@ -168,6 +184,7 @@ class _AppNavigatorState extends State<AppNavigator> {
         // --- FIX: Added these two lines so the navbar works! ---
         currentNavIndex: _navIndex,
         onNavTap: (i) => setState(() => _navIndex = i),
+        onLogOut: _goToSplash,
       ),
       _ => const SizedBox.shrink(),
     };

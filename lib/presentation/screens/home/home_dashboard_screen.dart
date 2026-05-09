@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:NeuroBob/presentation/screens/training/game_detail_screen.dart';
+import 'package:NeuroBob/core/data/game_list.dart';
 
 class HomeDashboardScreen extends StatefulWidget {
   final String userName;
@@ -160,7 +162,16 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
                     width: double.infinity,
                     height: 52,
                     child: ElevatedButton(
-                      onPressed: widget.onCheckIn,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => GameDetailScreen(
+                              game: games[0],
+                            ),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: primaryBlue,
                         foregroundColor: Colors.white,
